@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component type="desktop-application">
+  <id>io.github.runningwithrottweilers.XArchThemeStudio</id>
+  <name>X-ARCH Theme Studio</name>
+  <summary>Customize Linux icon themes and folder appearance</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <developer id="io.github.runningwithrottweilers">
+    <name>RUNNING WITH ROTTWEILERS</name>
+  </developer>
+  <description>
+    <p>X-ARCH Theme Studio is a desktop customization application combining a GTK4 interface with a Rust backend.</p>
+    <p>It provides tools for managing icon themes, customizing folder appearance, and working with desktop icon collections.</p>
+  </description>
+  <launchable type="desktop-id">io.github.runningwithrottweilers.XArchThemeStudio.desktop</launchable>
+  <url type="homepage">https://github.com/runningwithrottweilers/xarch-theme-studio</url>
+  <url type="bugtracker">https://github.com/runningwithrottweilers/xarch-theme-studio/issues</url>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://raw.githubusercontent.com/runningwithrottweilers/xarch-theme-studio/4cfc00c83471723b771c1caf1cdbfdb161ceba91/docs/screenshots/dashboard.png</image>
+      <caption>X-ARCH Theme Studio dashboard</caption>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="0.1.0-beta" date="2026-10-24" />
+  </releases>
+  <content_rating type="oars-1.1" />
+</component>

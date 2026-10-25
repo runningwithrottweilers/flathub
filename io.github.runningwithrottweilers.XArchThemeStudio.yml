@@ -1,0 +1,46 @@
+app-id: io.github.runningwithrottweilers.XArchThemeStudio
+runtime: org.gnome.Platform
+runtime-version: "49"
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+command: xarch-theme-studio-flatpak
+
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --filesystem=xdg-data/icons:create
+  - --filesystem=~/.config/kdeglobals
+  - --filesystem=~/.local/state/xarch-theme-studio:create
+
+modules:
+  - name: xarch-theme-studio
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/rust-stable/bin
+      env:
+        CARGO_TARGET_DIR: flatpak-target
+    build-commands:
+      - sed -i s/online.xarch.ThemeStudio/io.github.runningwithrottweilers.XArchThemeStudio/g gui/studio.py
+      - cargo build --release --offline
+      - install -Dm755 flatpak-target/release/xarch-theme-studio /app/bin/xarch-theme-studio
+      - install -Dm755 flatpak-launcher /app/bin/xarch-theme-studio-flatpak
+      - install -Dm644 ASSETS-LICENSE.md /app/share/doc/xarch-theme-studio/ASSETS-LICENSE.md
+      - install -Dm644 io.github.runningwithrottweilers.XArchThemeStudio.desktop /app/share/applications/io.github.runningwithrottweilers.XArchThemeStudio.desktop
+      - install -Dm644 io.github.runningwithrottweilers.XArchThemeStudio.metainfo.xml /app/share/metainfo/io.github.runningwithrottweilers.XArchThemeStudio.metainfo.xml
+      - mkdir -p /app/share/xarch-theme-studio
+      - cp -a gui /app/share/xarch-theme-studio/
+      - install -Dm644 flatpak-icon.png /app/share/icons/hicolor/256x256/apps/io.github.runningwithrottweilers.XArchThemeStudio.png
+    sources:
+      - type: git
+        url: https://github.com/runningwithrottweilers/xarch-theme-studio.git
+        commit: 2d97b963181ae93cdde1e5627667acf900467bae
+      - type: file
+        path: flatpak-launcher
+      - type: file
+        path: flatpak-icon.png
+      - type: file
+        path: io.github.runningwithrottweilers.XArchThemeStudio.desktop
+      - type: file
+        path: io.github.runningwithrottweilers.XArchThemeStudio.metainfo.xml
