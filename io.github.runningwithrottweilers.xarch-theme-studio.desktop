@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=X-ARCH Theme Studio
+Comment=Customize Linux icon themes and folder appearance
+Comment[pl]=Personalizuj motywy ikon i wyglad folderow w Linuksie
+Exec=xarch-theme-studio-flatpak
+Icon=io.github.runningwithrottweilers.xarch-theme-studio
+Terminal=false
+Categories=Settings;DesktopSettings;GTK;
+Keywords=icons;themes;folders;customization;
+Keywords[pl]=ikony;motywy;foldery;personalizacja;
